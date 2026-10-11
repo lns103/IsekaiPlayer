@@ -1,4 +1,4 @@
-[English Version](README.md)
+[English](README.md) | **简体中文**
 
 ![IsekaiPlayer](app/src/main/github-social-preview.png)
 
@@ -131,7 +131,7 @@ flowchart TD
 
 ## 🛠 编译原生库
 
-详细的构建脚本选项与使用指南，请参阅 [scripts/README_zh.md](scripts/README_zh.md) ([English Guide](scripts/README.md))。
+详细的构建脚本选项与使用指南，请参阅 [scripts/README_zh.md](scripts/README_zh.md)。
 
 1.  **下载与同步外部源码**：
     执行脚本以获取或更新 mpv 及其依赖（ffmpeg 等）的源代码：

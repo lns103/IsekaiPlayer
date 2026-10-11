@@ -1,4 +1,4 @@
-[English Version](README.md)
+[English](README.md) | **简体中文**
 
 # IsekaiPlayer 构建与工具脚本指南
 

@@ -1,4 +1,4 @@
-[中文说明 (Chinese Version)](README_zh.md)
+**English** | [简体中文](README_zh.md)
 
 ![IsekaiPlayer](app/src/main/github-social-preview.png)
 
@@ -131,7 +131,7 @@ flowchart TD
 
 ## 🛠 Building Native Libraries
 
-For detailed options and usage of the build scripts, see [scripts/README.md](scripts/README.md) ([中文指南](scripts/README_zh.md)).
+For detailed options and usage of the build scripts, see [scripts/README.md](scripts/README.md).
 
 1.  **Download & Synchronize External Source Code**:
     Execute the script to fetch or sync the source code for mpv and its dependencies (ffmpeg, etc.):

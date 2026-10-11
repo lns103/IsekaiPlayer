@@ -1,4 +1,4 @@
-[中文说明 (Chinese Version)](README_zh.md)
+**English** | [简体中文](README_zh.md)
 
 # IsekaiPlayer Build & Utility Scripts Guide
 
