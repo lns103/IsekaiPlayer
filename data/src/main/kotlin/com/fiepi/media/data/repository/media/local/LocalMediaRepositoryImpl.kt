@@ -26,12 +26,11 @@ import android.os.Handler
 import android.os.Looper
 import android.provider.MediaStore
 import android.util.Log
+import com.fiepi.media.data.repository.media.MediaFileSorter
 import com.fiepi.media.data.utils.resolveMimeType
 import com.fiepi.media.domain.config.AppConstants
 import com.fiepi.media.domain.model.media.MediaFile
 import com.fiepi.media.domain.model.preferences.MediaOptions
-import com.fiepi.media.domain.model.preferences.SortOrder
-import com.fiepi.media.domain.model.preferences.SortType
 import com.fiepi.media.domain.model.source.SourceType
 import com.fiepi.media.domain.repository.media.LocalMediaRepository
 import com.fiepi.media.domain.utils.FileUtils
@@ -217,38 +216,7 @@ class LocalMediaRepositoryImpl(
      * Sorts media files based on current user options such as folder order, sort type, and direction.
      */
     private fun sortItems(items: List<MediaFile>, options: MediaOptions): List<MediaFile> {
-        val comparator = compareBy<MediaFile> {
-            if (options.foldersFirst) {
-                if (it is MediaFile.Folder) 0 else 1
-            } else {
-                0
-            }
-        }.then { item1, item2 ->
-            val result = when (options.sortType) {
-                SortType.Name -> item1.name.compareTo(item2.name, ignoreCase = true)
-                SortType.Date -> {
-                    val d1 = (item1 as? MediaFile.Video)?.lastModified ?: 0L
-                    val d2 = (item2 as? MediaFile.Video)?.lastModified ?: 0L
-                    d1.compareTo(d2)
-                }
-
-                SortType.Size -> {
-                    val s1 = (item1 as? MediaFile.Video)?.size ?: 0L
-                    val s2 = (item2 as? MediaFile.Video)?.size ?: 0L
-                    s1.compareTo(s2)
-                }
-
-                SortType.Duration -> {
-                    val dur1 = (item1 as? MediaFile.Video)?.duration ?: 0L
-                    val dur2 = (item2 as? MediaFile.Video)?.duration ?: 0L
-                    dur1.compareTo(dur2)
-                }
-            }
-
-            if (options.sortOrder == SortOrder.Ascending) result else -result
-        }
-
-        return items.sortedWith(comparator)
+        return MediaFileSorter.sort(items, options)
     }
 
     /**
