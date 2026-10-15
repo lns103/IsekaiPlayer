@@ -17,7 +17,7 @@ androidx-compose = "1.13.0-beta01"
 androidx-material-icons = "1.7.8"
 androidx-material3 = "1.5.0-beta01"
 androidx-media = "1.11.1"
-androidx-paging = "3.5.2"
+androidx-paging = "3.5.3"
 
 backdrop = "2.0.1"
 
