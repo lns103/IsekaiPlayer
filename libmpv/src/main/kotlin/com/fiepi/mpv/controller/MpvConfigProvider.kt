@@ -90,7 +90,7 @@ class MpvConfigProvider(private val context: Context) {
         options["hdr-compute-peak"] = "auto"
 
         // Threads, hardware decoding base bits, and audio role settings
-        options["vd-lavc-dr"] = "yes"
+        options["vd-lavc-dr"] = "auto"
         options["vd-lavc-threads"] = staticConfig.vdLavcThreads.toString()
         options["mediacodec-video-crop"] = "yes"
         options["ao"] = staticConfig.audioOutput
