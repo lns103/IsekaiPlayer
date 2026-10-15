@@ -405,6 +405,7 @@
     <string name="settings_audio_delay_summary">Ajuste o atraso de áudio padrão para corrigir dessincronizações</string>
     <string name="settings_audio_output_order">Prioridade de saída de áudio</string>
     <string name="settings_audio_output_order_summary">Ajusta a prioridade dos módulos de saída de áudio</string>
+    <string name="settings_audio_output_order_note" formatted="false">Aviso de compatibilidade\n• Problema do AAudio em dispositivos Samsung\nAlguns dispositivos Samsung (como as séries Galaxy Tab / S) apresentam falhas em sua implementação do sistema AAudio. Após avançar/retroceder (seek), o relógio de tempo do AAudio pode parar de avançar, fazendo com que a imagem do vídeo e a barra de progresso fiquem congeladas enquanto o áudio continua tocando. Se ocorrer congelamento após a busca em dispositivos Samsung, mova o AudioTrack ou o OpenSL ES para o topo da lista de prioridade de saída de áudio.</string>
     <string name="settings_audio_dynamic_normalize">Compressão de faixa dinâmica</string>
     <string name="settings_audio_dynamic_normalize_summary">Normaliza o volume para realçar diálogos e atenuar sons altos (Modo Noturno)</string>
     <string name="settings_audio_pitch_correction">Correção de tom</string>

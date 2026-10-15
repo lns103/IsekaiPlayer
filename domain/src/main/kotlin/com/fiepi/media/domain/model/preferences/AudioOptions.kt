@@ -33,7 +33,7 @@ data class AudioOptions(
     @SerialName("preferred_audio_languages")
     val preferredAudioLanguages: List<String> = emptyList(),
     @SerialName("audio_output_backends")
-    val audioOutputBackends: List<String> = listOf("aaudio", "audiotrack", "opensles"),
+    val audioOutputBackends: List<String> = DEFAULT_BACKENDS,
     @SerialName("dynamic_audio_normalize")
     val dynamicAudioNormalize: Boolean = false,
     @SerialName("audio_pitch_correction")
@@ -44,4 +44,9 @@ data class AudioOptions(
     val mpvVolume: Int = 100,
     @SerialName("exo_volume")
     val exoVolume: Int = 100
-)
+) {
+    companion object {
+        val DEFAULT_BACKENDS = listOf("aaudio", "audiotrack", "opensles")
+        val SAMSUNG_DEFAULT_BACKENDS = listOf("audiotrack", "opensles", "aaudio")
+    }
+}

@@ -405,6 +405,7 @@
     <string name="settings_audio_delay_summary">Настройка задержки звука по умолчанию для устранения рассинхронизации</string>
     <string name="settings_audio_output_order">Приоритет вывода звука</string>
     <string name="settings_audio_output_order_summary">Настройка приоритета бэкендов вывода звука</string>
+    <string name="settings_audio_output_order_note" formatted="false">Примечание о совместимости\n• Проблема с AAudio на устройствах Samsung\nНекоторые устройства Samsung (например, серии Galaxy Tab / S) имеют ошибки в системной реализации AAudio. После перемотки (seek) таймер времени AAudio может перестать продвигаться, из-за чего видеокадр и шкала прогресса замирают, хотя звук продолжает воспроизводиться. Если вы сталкиваетесь с зависанием после перемотки на устройстве Samsung, переместите AudioTrack или OpenSL ES на первое место в списке приоритетов вывода звука.</string>
     <string name="settings_audio_dynamic_normalize">Сжатие динамического диапазона</string>
     <string name="settings_audio_dynamic_normalize_summary">Нормализация громкости для улучшения диалогов и приглушения громких звуков (ночной режим)</string>
     <string name="settings_audio_pitch_correction">Коррекция высоты тона</string>

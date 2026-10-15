@@ -408,8 +408,11 @@ class LocalMediaRepositoryImpl(
 
                 val videoId = cursor.getLong(idColumn)
                 val rawName = cursor.getString(nameColumn) ?: file.name
-                val ext = FileUtils.extractExtension(rawName) ?: FileUtils.extractExtension(file.name) ?: ""
-                val nameWithoutExt = FileUtils.extractNameWithoutExtension(rawName).ifBlank { FileUtils.extractNameWithoutExtension(file.name) }
+                val ext =
+                    FileUtils.extractExtension(rawName) ?: FileUtils.extractExtension(file.name)
+                    ?: ""
+                val nameWithoutExt = FileUtils.extractNameWithoutExtension(rawName)
+                    .ifBlank { FileUtils.extractNameWithoutExtension(file.name) }
                 val mimeType = cursor.getString(mimeColumn) ?: resolveMimeType(ext)
 
                 videos.add(

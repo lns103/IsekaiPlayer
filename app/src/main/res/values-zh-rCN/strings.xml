@@ -404,6 +404,7 @@
     <string name="settings_audio_delay_summary">调整默认音频延迟以弥补音画不同步问题</string>
     <string name="settings_audio_output_order">音频输出优先级</string>
     <string name="settings_audio_output_order_summary">调整音频输出后端的优先级</string>
+    <string name="settings_audio_output_order_note" formatted="false">兼容性说明\n• 三星设备 AAudio 异常\n部分三星设备（如 Galaxy Tab / S 系列）的系统 AAudio 音频接口存在兼容性缺陷。在进度调整（Seek）触发音频 Flush 后，AAudio 的时钟可能停止推进，导致视频画面与进度条卡住冻结，但音频硬件仍然响动。若在三星设备上遇到 Seek 后画面冻结问题，请将 AudioTrack 或 OpenSL ES 移动至音频输出优先级的首位。</string>
     <string name="settings_audio_dynamic_normalize">动态范围压缩</string>
     <string name="settings_audio_dynamic_normalize_summary">标准化音量以增强对话并抑制过大响声 (夜间模式)</string>
     <string name="settings_audio_pitch_correction">音调修正</string>

@@ -18,6 +18,7 @@
 
 package com.fiepi.media.data.repository.preferences.serializer
 
+import android.os.Build
 import com.fiepi.media.domain.model.preferences.AdvancedOptions
 import com.fiepi.media.domain.model.preferences.AudioOptions
 import com.fiepi.media.domain.model.preferences.DecoderOptions
@@ -30,7 +31,18 @@ import com.fiepi.media.domain.model.preferences.ThemeOptions
 import kotlinx.serialization.json.Json
 
 object SettingSerializers {
-    fun audio(json: Json) = JsonSerializer(AudioOptions.serializer(), AudioOptions(), json)
+    private val isSamsungDevice: Boolean
+        get() = Build.MANUFACTURER.equals("samsung", ignoreCase = true) ||
+                Build.BRAND.equals("samsung", ignoreCase = true)
+
+    private val defaultAudioOptions: AudioOptions
+        get() = if (isSamsungDevice) {
+            AudioOptions(audioOutputBackends = AudioOptions.SAMSUNG_DEFAULT_BACKENDS)
+        } else {
+            AudioOptions()
+        }
+
+    fun audio(json: Json) = JsonSerializer(AudioOptions.serializer(), defaultAudioOptions, json)
     fun decoder(json: Json) = JsonSerializer(DecoderOptions.serializer(), DecoderOptions(), json)
     fun theme(json: Json) = JsonSerializer(ThemeOptions.serializer(), ThemeOptions(), json)
     fun subtitle(json: Json) = JsonSerializer(SubtitleOptions.serializer(), SubtitleOptions(), json)

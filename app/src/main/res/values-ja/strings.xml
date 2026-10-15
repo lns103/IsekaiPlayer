@@ -405,6 +405,7 @@
     <string name="settings_audio_delay_summary">音声と映像の同期ズレを補正するためのデフォルト遅延を調整</string>
     <string name="settings_audio_output_order">音声出力優先度</string>
     <string name="settings_audio_output_order_summary">音声出力バックエンドの優先度を調整します</string>
+    <string name="settings_audio_output_order_note" formatted="false">互換性に関する注意\n• Samsung 端末の AAudio の問題\n一部の Samsung 端末 (Galaxy Tab / S シリーズなど) のシステム AAudio 実装には不具合が存在します。シーク操作後、AAudio のタイムスタンプクロックの進みが停止し、音声は流れ続けるものの映像とシークバーが停止する現象が発生します。Samsung 端末でシーク後にフリーズが発生する場合は、音声出力優先度で AudioTrack または OpenSL ES を最優先に移動してください。</string>
     <string name="settings_audio_dynamic_normalize">ダイナミックレンジ圧縮</string>
     <string name="settings_audio_dynamic_normalize_summary">音量を正規化して会話を聞きやすくし、大音量を抑えます (ナイトモード)</string>
     <string name="settings_audio_pitch_correction">ピッチ補正</string>

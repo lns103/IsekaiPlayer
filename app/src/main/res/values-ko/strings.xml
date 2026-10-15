@@ -405,6 +405,7 @@
     <string name="settings_audio_delay_summary">싱크 불일치를 보정하기 위한 기본 오디오 지연 시간을 조정합니다</string>
     <string name="settings_audio_output_order">오디오 출력 우선순위</string>
     <string name="settings_audio_output_order_summary">오디오 출력 백엔드의 우선순위를 변경합니다</string>
+    <string name="settings_audio_output_order_note" formatted="false">호환성 안내\n• 삼성 기기 AAudio 문제\n일부 삼성 기기(Galaxy Tab / S 시리즈 등)의 시스템 AAudio 구현에 오류가 존재합니다. 탐색(Seek) 후 AAudio 타임스탬프 클록 진행이 중단되어 소리는 계속 나오지만 비디오 화면과 탐색 바가 멈추는 현상이 발생할 수 있습니다. 삼성 기기에서 탐색 후 화면 멈춤 현상이 발생하는 경우 오디오 출력 우선순위에서 AudioTrack 또는 OpenSL ES를 가장 위로 이동해 주세요.</string>
     <string name="settings_audio_dynamic_normalize">다이내믹 레인지 압축(DRC)</string>
     <string name="settings_audio_dynamic_normalize_summary">음량을 평준화하여 대사를 또렷하게 하고 큰 소리를 줄입니다 (야간 모드)</string>
     <string name="settings_audio_pitch_correction">피치 보정</string>
