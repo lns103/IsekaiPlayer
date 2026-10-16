@@ -2,9 +2,17 @@ name: CI Build & Native Check
 
 on:
   push:
-    branches: [ main, master, dev ]
+    branches: [ main, master, dev, fongmi ]
   pull_request:
     branches: [ main, master, dev ]
+  workflow_dispatch:
+    inputs:
+      build_native:
+        description: 'Force native rebuild (bust cache)'
+        required: false
+        default: 'false'
+        type: choice
+        options: [ 'false', 'true' ]
 
 jobs:
   build:
@@ -39,7 +47,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: external/prebuilt/
-          key: prebuilt-so-${{ runner.os }}-${{ hashFiles('scripts/versions.sh', 'gradle/config.versions.toml') }}
+          key: prebuilt-so-${{ runner.os }}-${{ inputs.build_native }}-${{ hashFiles('scripts/versions.sh', 'gradle/config.versions.toml', 'scripts/components/*.sh', 'external/patches/**') }}
 
       - name: Install Host Build Tools
         if: steps.cache-prebuilt.outputs.cache-hit != 'true'
@@ -83,4 +91,12 @@ jobs:
         with:
           name: app-arm64-debug
           path: app/build/outputs/apk/debug/*.apk
+          retention-days: 7
+
+      - name: Upload Prebuilt Native Libraries Artifact
+        uses: actions/upload-artifact@v4
+        if: success()
+        with:
+          name: prebuilt-arm64-v8a
+          path: external/prebuilt/
           retention-days: 7
