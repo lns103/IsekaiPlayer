@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # 依赖库版本定义
-export V_MPV="master"
-export V_FFMPEG="master"
-export V_LIBPLACEBO="master"
+export V_MPV="fongmi"
+export V_FFMPEG="release-9.0-fongmi"
+export V_LIBPLACEBO="fongmi"
 export V_LIBASS="master"
 export V_LUA="v5.2.4"
 export V_DAV1D="1.5.4"
@@ -21,15 +21,15 @@ export V_LIBWEBP="v1.6.0"
 # 参数: 回调函数名 (URL, 目录名, 版本号/引用, 是否递归:1/0, 名称, 项目URL, 许可证名称, 许可证URL, 描述信息)
 for_each_repo() {
     local action=$1
-    $action "https://github.com/mpv-player/mpv.git" "mpv" "$V_MPV" 0 \
-        "mpv" "https://mpv.io" "LGPL-2.1-or-later" "https://github.com/mpv-player/mpv/blob/master/Copyright" \
-        "Command-line and embeddable media player core engine"
-    $action "https://github.com/FFmpeg/FFmpeg.git" "ffmpeg" "$V_FFMPEG" 0 \
-        "FFmpeg" "https://ffmpeg.org" "LGPL-2.1-or-later" "https://ffmpeg.org/legal.html" \
-        "Cross-platform solution for recording, converting, and streaming audio and video"
-    $action "https://github.com/haasn/libplacebo.git" "libplacebo" "$V_LIBPLACEBO" 1 \
-        "libplacebo" "https://code.videolan.org/videolan/libplacebo" "LGPL-2.1-or-later" "https://code.videolan.org/videolan/libplacebo/-/blob/master/LICENSE" \
-        "Vulkan/OpenGL-based GPU image processing and color management library"
+    $action "https://github.com/FongMi/mpv.git" "mpv" "$V_MPV" 0 \
+        "mpv" "https://github.com/FongMi/mpv" "LGPL-2.1-or-later" "https://github.com/FongMi/mpv/blob/fongmi/Copyright" \
+        "Command-line and embeddable media player core engine (FongMi Android fork)"
+    $action "https://github.com/FongMi/FFmpeg.git" "ffmpeg" "$V_FFMPEG" 0 \
+        "FFmpeg" "https://github.com/FongMi/FFmpeg" "LGPL-2.1-or-later" "https://github.com/FongMi/FFmpeg/blob/release-9.0-fongmi/LICENSE.md" \
+        "Cross-platform media framework (FongMi Android fork)"
+    $action "https://github.com/FongMi/libplacebo.git" "libplacebo" "$V_LIBPLACEBO" 1 \
+        "libplacebo" "https://github.com/FongMi/libplacebo" "LGPL-2.1-or-later" "https://github.com/FongMi/libplacebo/blob/fongmi/LICENSE" \
+        "Vulkan/OpenGL GPU image processing library (FongMi Android fork)"
     $action "https://github.com/libass/libass.git" "libass" "$V_LIBASS" 0 \
         "libass" "https://github.com/libass/libass" "ISC" "https://github.com/libass/libass/blob/master/COPYING" \
         "Portable subtitle renderer for ASS/SSA subtitle format"

@@ -41,5 +41,13 @@ data class MpvStaticConfig(
     // Whether to verify TLS certificates
     val tlsVerify: Boolean = true,
     // Whether to allow manually overriding video processing options in profile presets
-    val overrideProfile: Boolean = false
+    val overrideProfile: Boolean = false,
+    // FongMi Dolby Vision direct routing mode: configured, direct
+    val androidDolbyVisionOutput: String = "configured",
+    // FongMi transparent OSD Surface handle for dual-surface rendering
+    val androidOsdWid: Long = 0L,
+    // FongMi Vulkan AImageReader backend: auto, direct, compute, fragment
+    val androidVulkanAimagereaderBackend: String = "auto",
+    // FongMi retain Android video surface frame across resets/seeks
+    val androidKeepVideoFrame: Boolean = true
 )

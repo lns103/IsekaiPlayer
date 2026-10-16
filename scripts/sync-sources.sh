@@ -106,6 +106,14 @@ process_repo() {
         return
     fi
 
+    # 检查并更新远程仓库 URL (如果定义已更改)
+    local current_url
+    current_url=$(git remote get-url origin 2>/dev/null || echo "")
+    if [ -n "$current_url" ] && [ "$current_url" != "$url" ]; then
+        echo "    Updating origin URL: $current_url -> $url"
+        git remote set-url origin "$url"
+    fi
+
     # 重置本地修改以确保更新/切换成功 (处理 build-native.sh 中打的补丁)
     git reset --hard HEAD > /dev/null
     git clean -df > /dev/null

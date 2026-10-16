@@ -83,8 +83,8 @@ class MpvConfigProvider(private val context: Context) {
         // Screen refresh rate adaptation and clock synchronization
         options["display-fps-override"] = displayRefreshRate.toString()
         options["video-sync"] = staticConfig.videoSync
-        options["interpolation"] = "yes"
-        options["tscale"] = "oversample"
+        //options["interpolation"] = "yes"
+        //options["tscale"] = "oversample"
 
         // 开启动态 HDR 峰值检测，计算逐帧亮度直方图，防止暗部被过度压缩
         options["hdr-compute-peak"] = "auto"
@@ -100,6 +100,18 @@ class MpvConfigProvider(private val context: Context) {
         options["tls-verify"] = if (staticConfig.tlsVerify) "yes" else "no"
         options["tls-ca-file"] = caCertPath
         options["input-default-bindings"] = "yes"
+
+        // FongMi Android extension options
+        if (staticConfig.androidDolbyVisionOutput.isNotBlank()) {
+            options["android-dolby-vision-output"] = staticConfig.androidDolbyVisionOutput
+        }
+        if (staticConfig.androidOsdWid != 0L) {
+            options["android-osd-wid"] = staticConfig.androidOsdWid.toString()
+        }
+        if (staticConfig.androidVulkanAimagereaderBackend.isNotBlank()) {
+            options["android-vulkan-aimagereader-backend"] = staticConfig.androidVulkanAimagereaderBackend
+        }
+        options["android-keep-video-frame"] = if (staticConfig.androidKeepVideoFrame) "yes" else "no"
 
         // Log level
         options["msg-level"] = staticConfig.msgLevel
@@ -257,6 +269,9 @@ class MpvConfigProvider(private val context: Context) {
             "hwdec-current" to MpvFormat.MPV_FORMAT_STRING,
             "audio-delay" to MpvFormat.MPV_FORMAT_DOUBLE,
             "sub-delay" to MpvFormat.MPV_FORMAT_DOUBLE,
+            "video-params/colormatrix" to MpvFormat.MPV_FORMAT_STRING,
+            "video-params/colorlevels" to MpvFormat.MPV_FORMAT_STRING,
+            "current-tracks/video/dovi" to MpvFormat.MPV_FORMAT_NODE,
         )
     }
 }
