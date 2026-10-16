@@ -1,0 +1,19 @@
+# Normalize all text files to LF in the repository and in the working tree,
+# overriding core.autocrlf / core.eol so that clones on any OS stay LF.
+* text=auto eol=lf
+
+# Windows-only scripts must keep CRLF to run correctly under cmd.exe.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Explicit binary files, never apply line-ending conversion.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.jar binary
+*.aar binary
+*.jks binary
+*.so binary
+*.a binary
